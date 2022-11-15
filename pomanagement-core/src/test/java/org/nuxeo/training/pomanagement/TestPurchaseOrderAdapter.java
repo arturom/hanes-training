@@ -11,11 +11,14 @@ import org.nuxeo.ecm.core.test.CoreFeature;
 import org.nuxeo.runtime.test.runner.Deploy;
 import org.nuxeo.runtime.test.runner.Features;
 import org.nuxeo.runtime.test.runner.FeaturesRunner;
+import org.nuxeo.runtime.test.runner.PartialDeploy;
+import org.nuxeo.runtime.test.runner.TargetExtensions;
 import org.nuxeo.training.pomanagement.PurchaseOrderAdapter;
 
 @RunWith(FeaturesRunner.class)
 @Features(CoreFeature.class)
 @Deploy({"org.nuxeo.training.pomanagement.pomanagement-core"})
+@PartialDeploy(bundle = "studio.extensions.amejia-SANDBOX", extensions = { TargetExtensions.ContentModel.class })
 public class TestPurchaseOrderAdapter {
   @Inject
   CoreSession session;
@@ -28,6 +31,16 @@ public class TestPurchaseOrderAdapter {
     DocumentModel doc = session.createDocumentModel("/", "test-adapter", doctype);
     PurchaseOrderAdapter adapter = doc.getAdapter(PurchaseOrderAdapter.class);
     adapter.setTitle(testTitle);
+    adapter.setPrice(100.0f);
+    adapter.setProduct("COMPUTER/COMP_LAPTOP");
+    adapter.setQuantity(1);
+    
+    
     Assert.assertEquals("Document title does not match when using the adapter", testTitle, adapter.getTitle());
+    
+    adapter.create();
+    adapter.toNegotiating();
+    
+    Assert.assertEquals("negotiating", adapter.getState());
   }
 }
