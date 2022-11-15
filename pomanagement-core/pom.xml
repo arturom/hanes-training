@@ -20,5 +20,10 @@
       <artifactId>nuxeo-automation-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>nuxeo-studio</groupId>
+      <artifactId>amejia-SANDBOX</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>

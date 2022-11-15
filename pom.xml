@@ -18,6 +18,7 @@
     <!-- Skip Nuxeo enforcer rules by default -->
     <nuxeo.skip.enforcer>true</nuxeo.skip.enforcer>
     <nuxeo.target.version>2021.26</nuxeo.target.version>
+    <studio.project.version>hbi-training-2022-SNAPSHOT</studio.project.version>
   </properties>
 
   <modules>
@@ -38,6 +39,12 @@
         <groupId>org.nuxeo.training.pomanagement</groupId>
         <artifactId>pomanagement-core</artifactId>
         <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>nuxeo-studio</groupId>
+        <artifactId>amejia-SANDBOX</artifactId>
+        <version>${studio.project.version}</version>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
