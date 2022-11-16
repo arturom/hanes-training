@@ -23,6 +23,7 @@
 
   <modules>
     <module>pomanagement-core</module>
+    <module>pomanagement-package</module>
   </modules>
 
   <scm />
@@ -45,6 +46,11 @@
         <artifactId>amejia-SANDBOX</artifactId>
         <version>${studio.project.version}</version>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.nuxeo.training.pomanagement</groupId>
+        <artifactId>pomanagement-package</artifactId>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
