@@ -22,5 +22,9 @@ public class PurchaseOrderCreationListener implements EventListener {
         DocumentModel doc = docCtx.getSourceDocument();
 
         // Add some logic starting from here.
+        
+        if (doc.getType().equals("PurchaseOrder")) {
+        	doc.setPropertyValue("dc:title", "PO-Auto-generated-title");
+        }
     }
 }
