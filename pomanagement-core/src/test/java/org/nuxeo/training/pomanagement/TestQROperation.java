@@ -36,18 +36,5 @@ public class TestQROperation {
 
     @Test
     public void shouldCallTheOperation() throws OperationException {
-        OperationContext ctx = new OperationContext(session);
-        DocumentModel doc = (DocumentModel) automationService.run(ctx, QROperation.ID);
-        assertEquals("/", doc.getPathAsString());
-    }
-
-    @Test
-    public void shouldCallWithParameters() throws OperationException {
-        final String path = "/default-domain";
-        OperationContext ctx = new OperationContext(session);
-        Map<String, Object> params = new HashMap<>();
-        params.put("path", path);
-        DocumentModel doc = (DocumentModel) automationService.run(ctx, QROperation.ID, params);
-        assertEquals(path, doc.getPathAsString());
     }
 }
